@@ -1,0 +1,25 @@
+{
+  "name": "task2-inbox-agent",
+  "version": "1.0.0",
+  "description": "TypeScript Inbox Agent for AI Tech Consultant",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "start": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.8"
+  }
+}
