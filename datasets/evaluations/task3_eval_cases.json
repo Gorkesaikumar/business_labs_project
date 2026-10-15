@@ -1,0 +1,148 @@
+[
+  {
+    "eval_id": "t3_001",
+    "transcript_id": "trx_meeting_a",
+    "test_type": "requirement_coverage",
+    "expected_min_requirements": 3,
+    "required_topics": ["faceted", "radius", "mobile"]
+  },
+  {
+    "eval_id": "t3_002",
+    "transcript_id": "trx_meeting_a",
+    "test_type": "speaker_attribution",
+    "requirement_id": "req_a_001",
+    "expected_speaker": "Tom Chen",
+    "expected_status": "confirmed"
+  },
+  {
+    "eval_id": "t3_003",
+    "transcript_id": "trx_meeting_a",
+    "test_type": "exclusion_detection",
+    "expected_exclusion_keyword": "native iOS or Android"
+  },
+  {
+    "eval_id": "t3_004",
+    "transcript_id": "trx_meeting_a",
+    "test_type": "timeline_extraction",
+    "expected_timeline_weeks": 6
+  },
+  {
+    "eval_id": "t3_005",
+    "transcript_id": "trx_meeting_a",
+    "test_type": "feasibility_classification",
+    "requirement_title": "Multi-category Faceted Filtering",
+    "expected_classification": "existing_with_limitations"
+  },
+  {
+    "eval_id": "t3_006",
+    "transcript_id": "trx_meeting_a",
+    "test_type": "feasibility_classification",
+    "requirement_title": "Zip Code Radius Distance Search",
+    "expected_classification": "existing_configuration"
+  },
+  {
+    "eval_id": "t3_007",
+    "transcript_id": "trx_meeting_a",
+    "test_type": "acceptance_criteria_presence",
+    "requirement_id": "req_a_003",
+    "expected_criteria_substring": "under 2.0 seconds"
+  },
+  {
+    "eval_id": "t3_008",
+    "transcript_id": "trx_meeting_a",
+    "test_type": "three_point_estimate_validity",
+    "check": "low_hours <= most_likely_hours <= high_hours"
+  },
+  {
+    "eval_id": "t3_009",
+    "transcript_id": "trx_meeting_a",
+    "test_type": "commercial_pricing_consistency",
+    "check": "estimated_cost_likely == total_hours_likely * 150.0"
+  },
+  {
+    "eval_id": "t3_010",
+    "transcript_id": "trx_meeting_a",
+    "test_type": "approval_gate_draft_blocking",
+    "action": "send_proposal_unapproved",
+    "expected_http_status": 403
+  },
+  {
+    "eval_id": "t3_011",
+    "transcript_id": "trx_meeting_a",
+    "test_type": "approval_gate_authorized_dispatch",
+    "action": "send_proposal_after_approval",
+    "expected_http_status": 200
+  },
+  {
+    "eval_id": "t3_012",
+    "transcript_id": "trx_meeting_b",
+    "test_type": "requirement_coverage",
+    "expected_min_requirements": 3,
+    "required_topics": ["stripe", "receipt", "webhook"]
+  },
+  {
+    "eval_id": "t3_013",
+    "transcript_id": "trx_meeting_b",
+    "test_type": "feasibility_classification",
+    "requirement_title": "Integrated On-Site Stripe Elements Checkout",
+    "expected_classification": "existing_configuration"
+  },
+  {
+    "eval_id": "t3_014",
+    "transcript_id": "trx_meeting_b",
+    "test_type": "feasibility_classification",
+    "requirement_title": "Google Sheets Inventory Webhook & Sales Tax Calculation",
+    "expected_classification": "potential_custom_development"
+  },
+  {
+    "eval_id": "t3_015",
+    "transcript_id": "trx_meeting_b",
+    "test_type": "exclusion_detection",
+    "expected_exclusion_keyword": "shipping"
+  },
+  {
+    "eval_id": "t3_016",
+    "transcript_id": "trx_meeting_c",
+    "test_type": "follow_up_added_requirement",
+    "expected_added_title": "AI Conversational Natural Language Search Assistant",
+    "expected_change_type": "added"
+  },
+  {
+    "eval_id": "t3_017",
+    "transcript_id": "trx_meeting_c",
+    "test_type": "follow_up_removed_requirement",
+    "expected_removed_title": "Zip Code Radius Distance Search"
+  },
+  {
+    "eval_id": "t3_018",
+    "transcript_id": "trx_meeting_c",
+    "test_type": "follow_up_timeline_compression",
+    "baseline_weeks": 6,
+    "revised_weeks": 4,
+    "expected_delta_weeks": -2
+  },
+  {
+    "eval_id": "t3_019",
+    "transcript_id": "trx_meeting_c",
+    "test_type": "out_of_scope_detection",
+    "expected_flag_keyword": "OUT_OF_SCOPE_API"
+  },
+  {
+    "eval_id": "t3_020",
+    "transcript_id": "trx_meeting_c",
+    "test_type": "schedule_compression_alert",
+    "expected_flag_keyword": "SCHEDULE_COMPRESSION_RISK"
+  },
+  {
+    "eval_id": "t3_021",
+    "transcript_id": "trx_meeting_c",
+    "test_type": "baseline_immutability",
+    "check": "meeting_a_proposal_unchanged_after_diff"
+  },
+  {
+    "eval_id": "t3_022",
+    "transcript_id": "trx_meeting_c",
+    "test_type": "diff_human_summary_clarity",
+    "check": "summary_contains_added_removed_and_financial_delta"
+  }
+]
