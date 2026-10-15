@@ -1,0 +1,15 @@
+{
+  "transcript_id": "trx_meeting_c",
+  "project_id": "proj_directory_search",
+  "project_name": "Metro Directory Search & Mobile Optimization",
+  "meeting_date": "2026-10-12T15:30:00Z",
+  "meeting_type": "follow_up_scope_change",
+  "baseline_transcript_id": "trx_meeting_a",
+  "participants": [
+    {"name": "Sarah Miller", "role": "Client Product Owner (Metro Directory)"},
+    {"name": "Tom Chen", "role": "Client Technical Lead"},
+    {"name": "Elena Vance", "role": "AI Tech Consultant (BusinessLabs)"},
+    {"name": "David Ross", "role": "Senior Solutions Architect (BusinessLabs)"}
+  ],
+  "raw_transcript": "Elena Vance [00:00:02]: Welcome back Sarah and Tom. Today's follow-up meeting is to review the preliminary scope for Metro Directory and address the strategic changes your team requested via email.\n\nSarah Miller [00:00:18]: Thanks Elena. We had an executive leadership review on Friday, and two major scope changes came up that we need to reflect in the revised proposal.\n\nTom Chen [00:00:30]: First, on the search radius: We want to DROP the manual zip code radius slider that we discussed in Meeting A. In testing, users found entering a 5-digit zip code and sliding from 5 to 50 miles too tedious. Instead, we want to replace it entirely with a single 'Near Me' automated browser geolocation button that detects the user's GPS coordinates and sorts results within 15 miles automatically.\n\nDavid Ross [00:01:05]: Okay, so we are removing the zip code radius slider requirement and replacing it with one-click HTML5 browser geolocation auto-sorting.\n\nSarah Miller [00:01:18]: Exactly. Second change: our board approved an additional budget for an AI Conversational Search Assistant. At the top of the search page, we want a search input where visitors can type natural language questions like 'Find a pediatric chiropractor in north suburb accepting BlueCross' and receive a summarized AI response with matched member profile cards.\n\nDavid Ross [00:01:50]: That's an exciting addition. That will require embedding directory member profiles and connecting an LLM semantic search endpoint—similar to our Knowledge Brain architecture.\n\nTom Chen [00:02:08]: Third critical change: our marketing team moved up our launch date. We can no longer do 6 weeks. We must launch in 4 weeks from today. Can your engineering team deliver the revised scope with the accelerated 4-week deadline?\n\nElena Vance [00:02:30]: Adding AI conversational search while compressing the timeline from 6 weeks to 4 weeks will increase engineering intensity and requires prioritizing core deliverables. We will run this through our Scope Diff Agent, recalculate three-point hour estimates, identify out-of-scope risks, and present the delta comparison for your formal sign-off.\n\nSarah Miller [00:03:00]: Perfect. That is exactly what we need to see before we present the revised contract to our steering committee."
+}

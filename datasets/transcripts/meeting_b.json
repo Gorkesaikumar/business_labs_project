@@ -1,0 +1,14 @@
+{
+  "transcript_id": "trx_meeting_b",
+  "project_id": "proj_ecommerce_checkout",
+  "project_name": "Artisan Guild E-Commerce Checkout & Automated Billing",
+  "meeting_date": "2026-10-05T16:00:00Z",
+  "meeting_type": "initial_discovery",
+  "participants": [
+    {"name": "Marcus Vance", "role": "Guild Director (Artisan Guild)"},
+    {"name": "Chloe Bennett", "role": "Lead Operations Coordinator"},
+    {"name": "Elena Vance", "role": "AI Tech Consultant (BusinessLabs)"},
+    {"name": "Alex Mercer", "role": "Senior Full-Stack Engineer (BusinessLabs)"}
+  ],
+  "raw_transcript": "Elena Vance [00:00:03]: Welcome Marcus and Chloe. Let's dive into Artisan Guild's checkout and payment overhaul requirements.\n\nMarcus Vance [00:00:15]: Thank you Elena. We have 850 artisan creators who sell workshop tickets and digital pattern downloads on our directory. Right now our checkout is disjointed. Customers are redirected off-site to a generic PayPal link, which causes a 40% checkout drop-off.\n\nChloe Bennett [00:00:40]: We want an integrated on-site checkout using Stripe Elements supporting Apple Pay, Google Pay, and credit cards. When a purchase completes, three things must happen automatically:\n1. The buyer receives an itemized branded PDF receipt via email.\n2. The artisan vendor receives an SMS or email notification with buyer details.\n3. A webhook must sync the order into our central inventory spreadsheet in Google Sheets.\n\nAlex Mercer [00:01:10]: Brilliant Directories supports Stripe natively for digital product purchases and lead sales. For the branded PDF receipts and webhook to Google Sheets, we can configure Zapier or a lightweight AWS Lambda webhook handler.\n\nMarcus Vance [00:01:30]: Also, we require automated sales tax calculation for US state-by-state compliance. We use TaxJar or Stripe Tax.\n\nChloe Bennett [00:01:45]: Exclusions: We do NOT need physical shipping calculations or package tracking labels in this phase. All items sold are digital downloads or workshop registrations.\n\nElena Vance [00:02:05]: Understood. Timeline and approval constraints?\n\nMarcus Vance [00:02:12]: We want delivery within 5 weeks, and our budget range is $12,000 to $16,000. All proposals must be formally reviewed by our board before contract signing."
+}
