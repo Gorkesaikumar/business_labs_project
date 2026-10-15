@@ -1,0 +1,111 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: ai_consultant_postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-ai_tech_consultant}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  task1-knowledge-brain:
+    build:
+      context: .
+      dockerfile: task1-knowledge-brain/Dockerfile
+    container_name: ai_consultant_task1_kb
+    environment:
+      - ENVIRONMENT=production
+      - DATABASE_URL=postgresql+asyncpg://postgres:postgres@postgres:5432/ai_tech_consultant
+      - TASK1_PORT=8001
+      - TASK1_API_KEY=${TASK1_API_KEY:-kb_dev_secret_key_12345}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-mock}
+      - USE_MOCK_LLM=${USE_MOCK_LLM:-true}
+    ports:
+      - "8001:8001"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 8s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  task2-inbox-agent:
+    build:
+      context: .
+      dockerfile: task2-inbox-agent/Dockerfile
+    container_name: ai_consultant_task2_inbox
+    environment:
+      - TASK2_PORT=8002
+      - TASK2_API_KEY=${TASK2_API_KEY:-inbox_dev_secret_key_12345}
+      - KNOWLEDGE_BRAIN_URL=http://task1-knowledge-brain:8001
+      - TASK1_API_KEY=${TASK1_API_KEY:-kb_dev_secret_key_12345}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-mock}
+      - USE_MOCK_LLM=${USE_MOCK_LLM:-true}
+    ports:
+      - "8002:8002"
+    depends_on:
+      task1-knowledge-brain:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8002/health"]
+      interval: 8s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  task3-meeting-to-scope:
+    build:
+      context: .
+      dockerfile: task3-meeting-to-scope/Dockerfile
+    container_name: ai_consultant_task3_scope
+    environment:
+      - TASK3_PORT=8003
+      - KNOWLEDGE_BRAIN_URL=http://task1-knowledge-brain:8001
+      - TASK1_API_KEY=${TASK1_API_KEY:-kb_dev_secret_key_12345}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-mock}
+      - USE_MOCK_LLM=${USE_MOCK_LLM:-true}
+    ports:
+      - "8003:8003"
+    depends_on:
+      task1-knowledge-brain:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8003/health"]
+      interval: 8s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: ai_consultant_frontend
+    environment:
+      - VITE_TASK1_URL=http://localhost:8001
+      - VITE_TASK2_URL=http://localhost:8002
+      - VITE_TASK3_URL=http://localhost:8003
+    ports:
+      - "3000:3000"
+    depends_on:
+      - task1-knowledge-brain
+      - task2-inbox-agent
+      - task3-meeting-to-scope
+    restart: unless-stopped
+
+volumes:
+  pgdata:

@@ -1,0 +1,43 @@
+{
+  "system": "AI Tech Consultant Prompt Registry",
+  "version_history": [
+    {
+      "prompt_id": "pmt_kb_rag_v1",
+      "version": "1.0.0",
+      "target_service": "Task 1: Knowledge Brain",
+      "model": "claude-3-7-sonnet-20250219",
+      "change_description": "Initial system instructions with basic markdown citation requirements.",
+      "eval_accuracy": 91.2,
+      "regression_status": "superseded"
+    },
+    {
+      "prompt_id": "pmt_kb_rag_v2",
+      "version": "1.1.0",
+      "target_service": "Task 1: Knowledge Brain",
+      "model": "claude-3-7-sonnet-20250219",
+      "change_description": "Added explicit instruction override defense and prompt-injection containment rules.",
+      "eval_accuracy": 100.0,
+      "regression_status": "active_production",
+      "rollback_target": "1.0.0"
+    },
+    {
+      "prompt_id": "pmt_inbox_drafter_v1",
+      "version": "1.0.0",
+      "target_service": "Task 2: Inbox Agent",
+      "model": "claude-3-7-sonnet-20250219",
+      "change_description": "Basic customer email response drafting with polite tone.",
+      "eval_accuracy": 88.0,
+      "regression_status": "superseded"
+    },
+    {
+      "prompt_id": "pmt_inbox_drafter_v2",
+      "version": "1.2.0",
+      "target_service": "Task 2: Inbox Agent",
+      "model": "claude-3-7-sonnet-20250219",
+      "change_description": "Enforced strict financial liability guardrails: refusal to promise refunds, quote unverified fixed rates, or commit delivery dates.",
+      "eval_accuracy": 100.0,
+      "regression_status": "active_production",
+      "rollback_target": "1.0.0"
+    }
+  ]
+}
