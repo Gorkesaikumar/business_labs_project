@@ -1,5 +1,5 @@
 {
-  "evaluation_timestamp": "2026-10-15T13:32:58Z",
+  "evaluation_timestamp": "2026-10-15T13:35:51Z",
   "task1_knowledge_brain": {
     "task": "Task 1: Knowledge Brain",
     "total_cases": 22,
@@ -443,7 +443,7 @@
         "eval_id": "t3_011",
         "test_type": "approval_gate_authorized_dispatch",
         "passed": true,
-        "latency_ms": 0.05
+        "latency_ms": 0.06
       },
       {
         "eval_id": "t3_012",
